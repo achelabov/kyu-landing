@@ -1,0 +1,56 @@
+---
+import Container from "../shared/Container.astro";
+import Paragraph from "../shared/Paragraph.astro";
+import Title from "../shared/Title.astro";
+
+---
+
+<section id="features">
+    <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+        
+        <div class="flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col">
+            <Title>
+                Ключевые функции для эффективной аналитики
+            </Title>
+            <Paragraph className="mt-8">
+                Наш сервис предоставляет всё необходимое для глубокого понимания вашего трафика и поведения пользователей.
+                <br> 
+                Мы делаем аналитику простой, точной и приватной.
+            </Paragraph>
+            <Paragraph className="mt-2">
+                С KYU вы получаете инструменты, которые помогают вам принимать обоснованные решения, не нарушая приватность пользователей.
+            </Paragraph>
+            <ul class="mt-8 space-y-4 text-heading-3 font-medium">
+                <li>
+                    <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Анализ трафика в реальном времени
+                </li>
+                <li>
+                    <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Отслеживание без cookies
+                </li>
+                <li>
+                    <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Анализ пользовательских потоков
+                </li>
+                <li>
+                    <span class="font-bold bg-box-bg rounded-full w-8 h-8 mr-3 text-primary inline-flex justify-center items-center">&checkmark;</span> Интеграция с популярными платформами
+                </li>
+            </ul>
+        </div>
+
+        <div class="max-w-md mx-auto midmd:max-w-none lg:mx-0 lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto">
+            <div class="w-full h-80 sm:h-96 midmd:h-full relative">
+                <div class="absolute rotate-45 -left-5 md:-left-10 lg:-left-20 xl:-left-24 p-1 top-1/2 w-16 h-16 bg-gradient-to-br from-primary to-orange-400 blur-3xl opacity-50"></div>
+                <div class="absolute p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"></div>
+                
+                <span class="absolute w-full aspect-[16/5] -skew-x-12 rounded-full bg-gradient-to-tr from-primary to-green-400 opacity-40 blur-2xl left-0 bottom-0"></span>
+                
+                <!-- Блок с изображением -->
+                <div class="flex flex-1 lg:w-1/2 lg:h-auto relative lg:max-w-none lg:mx-0 mx-auto max-w-3xl" style="min-width: 100%; min-height: 100%;">
+                    <!-- Изображение для светлой темы -->
+                    <img src="/images/image-errors-light.webp" alt="Аналитика в действии" width="1240" height="1385" class="lg:absolute lg:w-full h-auto rounded-3xl lg:max-h-none max-h-96 dark:hidden shadow-md border border-gray-200">
+                    <!-- Изображение для тёмной темы -->
+                    <img src="/images/image-errors-dark.webp" alt="Аналитика в действии" width="1240" height="1385" class="lg:absolute lg:w-full h-auto rounded-3xl lg:max-h-none max-h-96 hidden dark:block shadow-md border border-gray-700">
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>
