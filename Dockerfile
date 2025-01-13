@@ -16,14 +16,11 @@ COPY . .
 # Собираем проект
 RUN npm run build
 
-# Используем легковесный образ Nginx для финального контейнера
+# Используем базовый образ Nginx для финального образа
 FROM nginx:alpine
 
 # Копируем собранные файлы из builder в Nginx
 COPY --from=builder /app/dist /usr/share/nginx/html
-
-# Копируем конфигурацию Nginx
-COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Открываем порт 80
 EXPOSE 80

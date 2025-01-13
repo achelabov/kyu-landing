@@ -1,9 +1,0 @@
-version: '3.8'
-
-services:
-  web:
-    image: achelabov/kyu-landing:latest
-    container_name: kyu-landing
-    ports:
-      - "80:80"
-    restart: always
