@@ -9,7 +9,6 @@ COPY package*.json ./
 
 # Устанавливаем зависимости, включая Astro CLI
 RUN npm install
-RUN npm install -g astro
 
 # Копируем исходный код
 COPY . .

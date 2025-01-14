@@ -22,112 +22,94 @@ const { title } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Подключаем локальный скрипт
-    <script src="/js/analytics.js" defer></script>
-    <script defer>
-      document.addEventListener('DOMContentLoaded', function() {
-        swetrix.init('Zjvqekp78Iio', {
-          apiURL: 'http://localhost:8080/log',
-        });
-        swetrix.trackViews();
-      });
-    </script>
   </head>
   <body class="overflow-hidden overflow-y-auto bg-body">
     <Navbar />
     <slot />
     <Footer />
+  </body>
+  <script>
+    const switchTheme = document.querySelector(
+      "[data-switch-theme]"
+    ) as HTMLButtonElement;
 
-    <noscript>
-      <img
-        src="http://localhost:8080/log/noscript?pid=Zjvqekp78Iio"
-        alt=""
-        referrerpolicy="no-referrer-when-downgrade"
-      />
-    </noscript> -->
-
-    <!-- Ваши существующие скрипты -->
-    <script>
-      const switchTheme = document.querySelector(
-        "[data-switch-theme]"
-      ) as HTMLButtonElement;
-
-      if (
-        localStorage.getItem("appTheme") === "dark" ||
-        (!("appTheme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-      if (switchTheme) {
-        switchTheme.addEventListener("click", (e) => {
-          e.preventDefault();
-          const doc = document.documentElement;
-          if (doc) {
-            if (localStorage.getItem("appTheme")) {
-              if (localStorage.getItem("appTheme") === "light") {
-                doc.classList.add("dark");
-                localStorage.setItem("appTheme", "dark");
-              } else {
-                document.documentElement.classList.remove("dark");
-                localStorage.setItem("appTheme", "light");
-              }
+    if (
+      localStorage.getItem("appTheme") === "dark" ||
+      (!("appTheme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+    if (switchTheme) {
+      switchTheme.addEventListener("click", (e) => {
+        e.preventDefault();
+        const doc = document.documentElement;
+        if (doc) {
+          if (localStorage.getItem("appTheme")) {
+            if (localStorage.getItem("appTheme") === "light") {
+              doc.classList.add("dark");
+              localStorage.setItem("appTheme", "dark");
             } else {
-              if (doc.classList.contains("dark")) {
-                doc.classList.remove("dark");
-                localStorage.setItem("appTheme", "light");
-              } else {
-                doc.classList.add("dark");
-                localStorage.setItem("appTheme", "dark");
-              }
+              document.documentElement.classList.remove("dark");
+              localStorage.setItem("appTheme", "light");
+            }
+          } else {
+            if (doc.classList.contains("dark")) {
+              doc.classList.remove("dark");
+              localStorage.setItem("appTheme", "light");
+            } else {
+              doc.classList.add("dark");
+              localStorage.setItem("appTheme", "dark");
             }
           }
-        });
-      }
-    </script>
-    <script>
-      const toggleMenu = document.querySelector(
-        "[data-toggle-nav]"
-      ) as HTMLButtonElement;
-      const navbar = document.querySelector("[data-navbar]") as HTMLDivElement;
-      const overlayNav = document.querySelector(
-        "[data-nav-overlay]"
-      ) as HTMLDivElement;
-      if (toggleMenu) {
-        toggleMenu.addEventListener("click", e => {
-          e.preventDefault();
-          if (toggleMenu.getAttribute("data-open-nav") === "false") {
-            toggleMenu.setAttribute("data-open-nav", "true");
-            overlayNav.setAttribute("data-is-visible", "true");
-            document.body.classList.add("!overflow-y-hidden");
-            navbar.style.height = `${navbar.scrollHeight}px`;
-          } else {
-            toggleMenu.setAttribute("data-open-nav", "false");
-            overlayNav.setAttribute("data-is-visible", "false");
-            document.body.classList.remove("!overflow-y-hidden");
-            navbar.style.height = "0px";
-          }
-        });
+        }
+      });
+    }
+  </script>
+  <script>
+    const toggleMenu = document.querySelector(
+      "[data-toggle-nav]"
+    ) as HTMLButtonElement;
+    const navbar = document.querySelector("[data-navbar]") as HTMLDivElement;
+    const overlayNav = document.querySelector(
+      "[data-nav-overlay]"
+    ) as HTMLDivElement;
+    if (toggleMenu) {
+      toggleMenu.addEventListener("click", e => {
+        e.preventDefault();
+        if (toggleMenu.getAttribute("data-open-nav") === "false") {
+          toggleMenu.setAttribute("data-open-nav", "true");
+          overlayNav.setAttribute("data-is-visible", "true");
+          document.body.classList.add("!overflow-y-hidden");
+		  navbar.style.height = `${navbar.scrollHeight}px`
 
-        navbar.addEventListener("click", () => {
-          toggleMenu.setAttribute("data-open-nav", "false");
-          overlayNav.setAttribute("data-is-visible", "false");
-          document.body.classList.remove("!overflow-y-hidden");
-          navbar.style.height = "0px";
-        });
+        }else{
+			toggleMenu.setAttribute("data-open-nav", "false");
+        	overlayNav.setAttribute("data-is-visible", "false");
+        	document.body.classList.remove("!overflow-y-hidden");
+		  	navbar.style.height = "0px"
+		}
+		
+        
+      });
 
-        overlayNav.addEventListener("click", () => {
-          toggleMenu.setAttribute("data-open-nav", "false");
-          overlayNav.setAttribute("data-is-visible", "false");
-          document.body.classList.remove("!overflow-y-hidden");
-          navbar.style.height = "0px";
-        });
-      }
-    </script>
-  </body>
+      navbar.addEventListener("click", () => {
+        toggleMenu.setAttribute("data-open-nav", "false");
+        overlayNav.setAttribute("data-is-visible", "false");
+        document.body.classList.remove("!overflow-y-hidden");
+		  	navbar.style.height = "0px"
+      });
+
+      overlayNav.addEventListener("click", () => {
+        toggleMenu.setAttribute("data-open-nav", "false");
+        	overlayNav.setAttribute("data-is-visible", "false");
+        	document.body.classList.remove("!overflow-y-hidden");
+		  	navbar.style.height = "0px"
+      });
+    }
+  </script>
 </html>
 <style is:global>
   :root {
@@ -136,9 +118,9 @@ const { title } = Astro.props;
     --color-box: 255 255 255;
     --box-border: 229 231 235;
     --box-sd: 226 232 240 / 0.5;
-    --heading-1:  23 37 84;
-    --heading-2: 31 41 55;
-    --heading-3: 55 65 81;
+	--heading-1:  23 37 84;
+	--heading-2: 31 41 55;
+	--heading-3: 55 65 81;
   }
 
   .dark {
@@ -147,15 +129,15 @@ const { title } = Astro.props;
     --box-border: 243 244 246/0.1;
     --box-sd: transparent;
 
-    --heading-1:  255 255 255;
-    --heading-2:  243 244 246;
-    --heading-3:  209 213 219;
+	
+	--heading-1:  255 255 255;
+	--heading-2:  243 244 246;
+	--heading-3:  209 213 219;
   }
 
-  html {
+  html{
     scroll-behavior: smooth;
   }
-
   body {
     font-family: "Raleway", sans-serif;
   }
@@ -171,6 +153,7 @@ const { title } = Astro.props;
     transform: translateY(-0.375rem) rotate(-40deg);
   }
 
+  
   [data-nav-overlay][data-is-visible="true"] {
     visibility: visible;
     display: flex;
