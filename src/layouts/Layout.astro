@@ -28,6 +28,24 @@ const { title } = Astro.props;
     <slot />
     <Footer />
   </body>
+  <!-- Подключаем скрипт аналитики -->
+  <script src="https://knowyouruser.ru/js/analytics.js" defer></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        swetrix.init('bB4J1xhPhknQ', {
+          apiURL: 'https://api.knowyouruser.ru/log',
+        })
+        swetrix.trackViews()
+      })
+    </script>
+
+    <noscript>
+      <img
+        src="https://api.knowyouruser.ru/log/noscript?pid=bB4J1xhPhknQ"
+        alt=""
+        referrerpolicy="no-referrer-when-downgrade"
+      />
+    </noscript>
   <script>
     const switchTheme = document.querySelector(
       "[data-switch-theme]"
