@@ -43,25 +43,25 @@ const footerSupport = [
 
 const footerCompany = [
     {
-        itemText:"About",
-        itemLink:"/about"
+        itemText:"Блог",
+        itemLink:"https://blog.knowyouruser.ru/?utm_source=landing"
     },
-    {
-        itemText:"Blog",
-        itemLink:"#"
-    },
-    {
-        itemText:"Jobs",
-        itemLink:"#"
-    },
-    {
-        itemText:"Parteners",
-        itemLink:"#"
-    },
-    {
-        itemText:"Jobs",
-        itemLink:"#"
-    }
+    // {
+    //     itemText:"About",
+    //     itemLink:"/about"
+    // },
+    // {
+    //     itemText:"Jobs",
+    //     itemLink:"#"
+    // },
+    // {
+    //     itemText:"Parteners",
+    //     itemLink:"#"
+    // },
+    // {
+    //     itemText:"Jobs",
+    //     itemLink:"#"
+    // }
 ]
 const footerLegal = [
     {
@@ -161,12 +161,12 @@ const footerLegal = [
                 </div> -->
             </div>
 
-            <!-- <GroupFooterNav>
-                <FooterNav title={"Company"} navItems={footerCompany}/>
-                <FooterNav title={"Solutions"} navItems={footerNav1}/>
-            </GroupFooterNav> -->
-
             <GroupFooterNav>
+                <FooterNav title={"О компании"} navItems={footerCompany}/>
+                <!-- <FooterNav title={"Solutions"} navItems={footerNav1}/> -->
+            <!-- </GroupFooterNav>
+
+            <GroupFooterNav> -->
                 <FooterNav title={"Поддержка"} navItems={footerSupport}/>
                 <!-- <FooterNav title={"Ressources"} navItems={footerLegal}/> -->
             </GroupFooterNav>
